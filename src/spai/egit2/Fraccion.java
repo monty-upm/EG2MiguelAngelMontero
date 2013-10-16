@@ -72,7 +72,16 @@ public class Fraccion {
     }
     
     public Fraccion multiplicacion(Fraccion fraccion){
-    	return null;
+    	int num, den; // numerador y denominador nuevo
+    	num = this.getNumerador() * fraccion.getNumerador();
+    	den = this.getDenominador() * fraccion.getDenominador();
+    	return new Fraccion(num, den);
+    }
+    
+    
+    @Override
+    public boolean equals(Object f){
+    	return (((Fraccion) f).getNumerador() == this.getNumerador()) && (((Fraccion) f).getDenominador() == this.getDenominador());
     }
     
     public Fraccion division(Fraccion fraccion){
