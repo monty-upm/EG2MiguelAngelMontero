@@ -54,5 +54,14 @@ public class FraccionTest {
     public void testDivision(){
     	 assertEquals(new Fraccion(4,6), fraccion.division(new Fraccion(2,2)));
     }
+    
+	@Test
+    public void testEsEquivalente() {
+    	Fraccion f1 = new Fraccion(1,2);    	
+    	assertFalse(fraccion.esEquivalente(f1));
+    	
+    	assertTrue(fraccion.esEquivalente(fraccion));
+    }
+    
 
 }
