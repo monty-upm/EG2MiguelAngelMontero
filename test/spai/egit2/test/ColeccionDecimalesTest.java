@@ -12,7 +12,7 @@ public class ColeccionDecimalesTest {
 
     @Before
     public void initObjects() {
-        double[] coleccion = {1.2, 3.4, 1.2};
+        double[] coleccion = {1.2, 3.4, 1.1};
         this.numeros = new ColeccionDecimales(coleccion);
     }
 
