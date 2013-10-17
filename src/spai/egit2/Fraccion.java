@@ -85,7 +85,12 @@ public class Fraccion {
     }
     
     public Fraccion division(Fraccion fraccion){
-    	return null;
+    	Fraccion fResultado = new Fraccion();
+    	
+    	fResultado.setNumerador(this.getNumerador() * fraccion.getDenominador());
+    	fResultado.setDenominador(this.getDenominador()* fraccion.getNumerador());
+    	
+    	return fResultado;
     }
     
     public boolean esEquivalente(Fraccion fraccion){
