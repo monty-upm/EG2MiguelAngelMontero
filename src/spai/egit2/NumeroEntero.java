@@ -30,5 +30,9 @@ public class NumeroEntero {
     public void decrementar() {
         this.valor--;
     }
+    
+    public boolean esPrimo(int integer){
+    	return false;
+    }
 
 }
