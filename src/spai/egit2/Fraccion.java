@@ -94,8 +94,15 @@ public class Fraccion {
     }
     
     public boolean esEquivalente(Fraccion fraccion){
-    	return false;
+    	double result1=0;
+    	double result2=0;
+    	
+     	result1 = (double)this.getNumerador() / (double)this.getDenominador() ;
+     	result2 =  (double)fraccion.getNumerador() / (double)fraccion.getDenominador();
+    	
+    	if(result1==result2){	return true;}
+    	else  {return false; }	
+
     }
-    
 
 }
