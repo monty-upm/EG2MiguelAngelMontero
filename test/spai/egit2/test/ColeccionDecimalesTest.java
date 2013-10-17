@@ -12,7 +12,7 @@ public class ColeccionDecimalesTest {
 
     @Before
     public void initObjects() {
-        double[] coleccion = {1.2, 3.4, 1.1};
+        double[] coleccion = {1.2, 3.4, 1.2};
         this.numeros = new ColeccionDecimales(coleccion);
     }
 
@@ -28,7 +28,7 @@ public class ColeccionDecimalesTest {
     
     @Test
     public void testMenor() {
-        assertEquals(1.1, this.numeros.menor(), 1e-10);
+        assertEquals(1.2, this.numeros.menor(), 1e-10);
     }
 
 }
