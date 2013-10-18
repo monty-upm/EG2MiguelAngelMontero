@@ -50,6 +50,7 @@ public class NumeroEnteroTest {
     
     @Test 
     public void testEsPrimo(){
+    	this.numero = new NumeroEntero(11);
     	assertTrue("El número no es primo.",this.numero.esPrimo(this.numero.getValor()));
     }
 
