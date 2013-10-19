@@ -32,6 +32,8 @@ package spai.egit2;
  * 
  * @author jbernal
  * 
+ * 
+ * meto un cambio para que se ejecute el travis
  */
 public class Fraccion {
     private int numerador;
