@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ProyectoANT" default="main" basedir=".">
+	<!-- Variables globales -->
+	<property name="src" location="src" />
+	<property name="test" location="test" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+	<property name="junit" location="lib/junit-4.10.jar" />
+	<property name="testReport" location="testReport" />
+	<property name="name" value="ProyectoANT" />
+	<property name="version" value="1.0.0" />
+	<!-- Se resuelven las dependencias -->
+	<path id="classpath.test">
+		<pathelement location="${build}/main" />
+		<pathelement location="${build}/test" />
+		<pathelement location="${junit}" />
+	</path>
+	<!-- Borrando directorios... -->
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+		<delete dir="${testReport}" />
+	</target>
+	<!-- Creando directorios... -->
+	<target name="init">
+		<mkdir dir="${build}/main" />
+		<mkdir dir="${build}/test" />
+		<mkdir dir="${dist}" />
+		<mkdir dir="${testReport}" />
+	</target>
+
+	<!-- Compilando... -->
+	<target name="compila" description="Compila">
+		<javac includeantruntime="false" srcdir="${src}" destdir="${build}/main"
+			classpathref="classpath.test" />
+		<javac includeantruntime="false" srcdir="${test}" destdir="${build}/test"
+			classpathref="classpath.test" />
+	</target>
+	<!-- Ejecutar test JUnit, salida en fichero XML -->
+	<target name="test" depends="compila">
+		<junit printsummary="on" fork="yes" haltonfailure="true">
+			<classpath refid="classpath.test" />
+			<batchtest fork="yes" todir="${testReport}">
+				<formatter type="xml" usefile="true" />
+				<fileset dir="${test}">
+					<include name="**/SumaTest.java" />
+					<!-- <include name="**/*Test*.java" /> -->
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	<target name="empaqueta" depends="compila, test" description="Empaqueta">
+		<jar jarfile="${dist}/lib/${name}v${version}.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Specification-Title" value="${name}" />
+				<attribute name="Specification-Version" value="${version}" />
+				<attribute name="Main-Class" value="es.upm.miw.spai.ant.test.SumaTest" />
+			</manifest>
+		</jar>
+	</target>
+	<!-- Principal... -->
+	<target name="main" depends="clean, init, compila, test, empaqueta"
+		description="Compila y empaqueta">
+		<echo message="Compilando y creando el archivo .jar ..." />
+	</target>
+</project>
