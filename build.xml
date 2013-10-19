@@ -30,3 +30,4 @@
 		<formatter type="xml" usefile="false" />
 		<fileset dir="${src}" includes="**/*.java" />
 	</checkstyle>
+</target>
