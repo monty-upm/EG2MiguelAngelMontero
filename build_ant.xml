@@ -22,9 +22,9 @@
 	</target>
 	<!-- compilar... -->
 	<target name="compila" description="Compila" >
-		<javac encoding="iso-5589-1" includeantruntime="false" srcdir="${src}" destdir="${build}/main"
+		<javac encoding="ISO-8859-1" includeantruntime="false" srcdir="${src}" destdir="${build}/main"
 			classpathref="classpath.test" />
-		<javac encoding="iso-5589-1" includeantruntime="false" srcdir="${test}" destdir="${build}/test"
+		<javac encoding="ISO-8859-1" includeantruntime="false" srcdir="${test}" destdir="${build}/test"
 			classpathref="classpath.test" />
 	</target>
 	<!-- Principal... -->
